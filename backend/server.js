@@ -64,6 +64,13 @@ app.use("/api/auth/forgot-password", authLimiter);
 // --- Routes ---
 app.get("/api/health", (req, res) => res.json({ success: true, message: "API is running" }));
 
+app.get("/", (req, res) => {
+  res.json({ success: true, message: "E-commerce API is running 🚀", version: "1.0.0" });
+});
+
+app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
+
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
